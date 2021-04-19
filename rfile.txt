@@ -1,0 +1,6 @@
+int sum, x,y;
+float abc = 0;
+sum = x *y;
+abc = sum/x;
+return 0;
+
