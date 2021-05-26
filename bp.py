@@ -37,7 +37,7 @@ class NN:
         self.wi = makeMatrix(self.il, self.hl)
         print(self.wi)
         self.wo = makeMatrix(self.hl, self.ol)
-        
+
         for i in range(self.il):
             for j in range(self.hl):
                 self.wi[i][j] = rand(-0.2, 0.2)
@@ -113,7 +113,7 @@ class NN:
         for j in range(self.hl):
             print(self.wo[j])
 
-    def train(self, patterns, it=1000, N=0.5, M=0.1):
+    def train(self, patterns, it=500, N=0.5, M=0.1):
         for i in range(it):
             error = 0.0
             for p in patterns:
@@ -122,15 +122,15 @@ class NN:
                 self.update(inputs)
                 error = error + self.backPropagate(targets, N, M)
             if i % 100 == 0:
-                print('error %-.5f' % error)
+                print(f'error {i} %-.5f' % error)
 
 
 def inp():
     data = [
-        [[0, 0], [0]],
-        [[0, 1], [1]],
-        [[1, 0], [1]],
-        [[1, 1], [0]],
+        [[1, 1], [1]],
+        [[1, 1], [1]],
+        [[1, 1], [1]],
+        [[1, -1], [1]],
     ]
     n = NN(2, 2, 1)
     # n = NN(3, 1)
